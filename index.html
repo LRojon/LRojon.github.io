@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/jquery-scrollify/jquery.scrollify.js"></script>
+    <script>
+        $(function() {
+            $.scrollify({
+                section : ".row",
+                scrollSpeed: 500,
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <title>Loïc Rojon</title>
+</head>
+<body class="bg-dark" style="overflow: hidden; color: lightgray;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+        <a class="navbar-brand" href="#">Loïc Rojon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#CV">Curriculum Vitae</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Projets</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#P1">Projet 1</a>
+                        <a class="dropdown-item" href="#P2">Projet 2</a>
+                        <a class="dropdown-item" href="#P3">Projet 3</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#all">Tout les projets</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="content" class="container-fluid">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row" id="CV">
+            <div class="col-sm-4" style="text-align: center;">
+                <img style="border-radius: 5000px;" class="img-fluid" width="50%" src="http://lrojon.alwaysdata.net/Image/moi.png" alt="Moi">
+                <h1><u>Mes Coordonnées</u></h1>
+                <p style="text-align:center">
+                    12 Rue Phillipe Goy, 69500, BRON<br>
+                    06.20.23.56.61<br>
+                    loic.rojon@gmail.com
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <div>C#: Winform, WPF, POO</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                        <span style="color: lightgray;">7/10</span>
+                    </div>
+                </div>
+                <br>
+                <div>C++: POO</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                        <span style="color: lightgray;">4/10</span>
+                    </div>
+                </div>
+                <br>
+                <div>ASP.NET</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                        <span style="color: lightgray;">5/10</span>
+                    </div>
+                </div>
+                <br>
+                <div>Web: HTML, CSS, PHP</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <span style="color: lightgray;">6/10</span>
+                    </div>
+                </div>
+                <br>
+                <div>Base de donnée: MySQL, PL/SQL</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                        <span style="color: lightgray;">4/10</span>
+                    </div>
+                </div>
+                <br>
+                <div>Javascript: Vanilla JS, JQuery</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <span style="color: lightgray;">6/10</span>
+                    </div>
+                </div>
+                <br>
+                <div>Framework Web: Symfony 4, Bootstrap 4</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <span style="color: lightgray;">6/10</span>
+                    </div>
+                </div>
+                <br>
+                <div>GIT</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <span style="color: lightgray;">6/10</span>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="col-sm-4" style="text-align:center">
+                <h1><u>Mes centres d'intérêt</u></h1>
+                <p>
+                    Programmation: <a href="#all">Voir Projet</a><br>
+                    Lecture (Roman, manga, ...): L'épouventeur, Full Metal Alchemist, 21/11/63<br>
+                    Jeux vidéo<br>
+                </p>
+            </div>
+            <br>
+        </div>
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-sm-12">
+                <div>Doloribus vero eligendi eveniet magnam sequi praesentium nam consequatur, ea quod labore nihil dolorum at similique, nulla deleniti possimus et quibusdam animi officia. Accusamus quia sapiente tempora vel tenetur! Officiis!</div>
+                <div>Non ipsum nam harum magni fugit porro vero! Dolores eos tempore, magni illo repellat animi voluptatum laboriosam, porro ex id odit quisquam, sed eius? Nihil est soluta repellat amet enim.</div>
+                <div>Perferendis fugiat blanditiis quibusdam maiores beatae porro inventore fugit dicta mollitia veniam nam ipsa ducimus obcaecati esse laboriosam repellendus quasi rerum saepe, corporis deleniti quaerat totam vero, quia id. Repellendus.</div>
+                <div>Facere reprehenderit deleniti ab facilis tempore ut sed illo officiis, dolores quia voluptate ducimus non odit quae eveniet ratione quos! Mollitia molestiae iusto possimus natus quis maiores nemo pariatur inventore!</div>
+                <div>Enim nulla modi reiciendis libero repellendus veniam harum perspiciatis hic quas quae id magnam in maxime exercitationem ducimus illum provident molestias cupiditate consectetur autem, nostrum quam obcaecati fugiat praesentium? Laborum!</div>
+                <div>Itaque enim eum voluptates nisi, sapiente commodi repellat quaerat similique veniam hic necessitatibus tempore aperiam blanditiis id ut error praesentium saepe nesciunt, cupiditate molestias nam, explicabo sequi aut. Incidunt, corporis!</div>
+                <div>Voluptas, eligendi error architecto blanditiis assumenda exercitationem? Odio id tempore illo laborum cum! Sunt eum, saepe tenetur nobis fuga eligendi illum voluptate! Nihil temporibus ducimus quasi. Aut distinctio iusto maiores.</div>
+            </div>
+            <br>
+        </div>
+        <div class="row" id="all">
+    <br>
+    <br>
+    <br>
+            <div class="col-sm-12">
+                <div>Quas earum cum temporibus sit consequuntur ea dolorem aspernatur! Suscipit cum similique hic, praesentium recusandae quas cupiditate at nemo veniam eum porro voluptatibus esse quo neque veritatis quasi, quaerat itaque.</div>
+                <div>Iste libero nisi eius eos blanditiis dolorem, cumque eaque esse itaque delectus quas saepe, illum autem sapiente dicta nobis, tempora voluptatibus consequatur similique iusto. Ullam minima eaque repellat aliquid fuga?</div>
+                <div>Eaque dolorum maxime itaque amet cum quidem unde animi velit voluptatum assumenda accusamus, temporibus molestias vero blanditiis autem necessitatibus, ex doloremque tenetur deleniti mollitia? Fugiat minus impedit iusto nulla veritatis.</div>
+                <div>Asperiores doloremque corporis in, modi incidunt quia! Nemo ipsam porro ex esse. Sequi blanditiis ipsum fugit unde error, nihil repellat similique. Nemo vel cum assumenda consequuntur omnis, quisquam placeat autem!</div>
+                <div>Voluptatum natus dicta esse omnis minus hic, praesentium sequi iure aliquam eligendi ratione blanditiis? Repellat placeat corrupti distinctio numquam beatae unde, aspernatur reprehenderit ea assumenda asperiores tempore molestiae labore neque?</div>
+                <div>Incidunt tempore, magnam numquam voluptate cupiditate totam iusto culpa animi repellendus inventore delectus saepe doloremque voluptatibus id voluptas nesciunt provident autem. Quibusdam qui placeat iusto vitae suscipit aliquam, voluptas quia.</div>
+                <div>Neque ducimus mollitia dolorum modi ipsa voluptatem ipsam ea, at, deleniti quasi ex molestias unde suscipit! Provident harum voluptatum eveniet sequi maxime, consequuntur distinctio inventore a, nobis aperiam debitis laboriosam?</div>
+            </div>
+            <br>
+        </div>
+        <div class="row">
+    <br>
+    <br>
+    <br>
+            <div class="col-sm-12">
+                <div>Hic optio voluptatum non incidunt laudantium vero sit id repudiandae numquam maiores pariatur nisi, beatae in officia expedita deleniti voluptate eveniet? Ullam repudiandae optio nesciunt est quis dolorem doloribus nemo.</div>
+                <div>Vitae voluptatem nemo dolor a atque velit veniam quo consectetur incidunt itaque ullam labore nihil ipsam saepe vero sed, perferendis, assumenda est ratione magnam eos iste nostrum iure. Dolorum, dignissimos?</div>
+                <div>Perferendis minus, qui totam rem et molestiae esse assumenda corporis provident beatae dicta quis saepe voluptate debitis. Itaque, culpa. Sed ad accusantium tempore, nulla nobis voluptas nemo animi illum ipsa!</div>
+                <div>Ab distinctio amet impedit, eligendi veritatis necessitatibus molestiae porro facere minus quam a ipsum ipsa at modi blanditiis provident optio tempore! Quibusdam, officiis voluptatum? Aperiam non necessitatibus quibusdam cumque repudiandae?</div>
+                <div>Nostrum, iste laborum provident similique laudantium dolorum ad unde corporis dolor nisi sed quasi doloremque. Magnam, ab veniam, odit illo exercitationem unde ipsa repudiandae eaque doloremque debitis, enim deleniti perspiciatis?</div>
+                <div>Voluptatem, quisquam ad? Alias quisquam unde possimus in temporibus. Vel consequuntur laboriosam dicta, fugit deserunt illo laborum impedit nihil libero corporis praesentium blanditiis accusamus quas velit magni voluptatem temporibus pariatur.</div>
+                <div>Placeat impedit odit rem vel, autem vitae consectetur, voluptates repellat maiores cumque possimus voluptatibus. Iste cum alias ea ducimus numquam perspiciatis libero quaerat corporis. Sapiente dolorum facere maiores doloribus illum.</div>
+            </div>
+        </div>
+        <div class="row" id="P2">
+    <br>
+    <br>
+    <br>
+            <div class="col-sm-12">
+                <h1>P2</h1>
+                <div>Autem voluptate earum nesciunt sunt eum delectus expedita? Ab, illo tempora. Sunt accusantium veniam aliquid vero velit, consectetur harum enim obcaecati pariatur nam sequi voluptates nihil consequuntur illum, magnam voluptate.</div>
+                <div>Ducimus quod, porro minus maxime doloremque fuga culpa aperiam voluptatibus, nemo accusantium ex molestiae, sit dicta facere similique eveniet nulla illum totam quas facilis cumque quibusdam eius sint. Dolore, aut?</div>
+                <div>Quis qui hic dolore non perspiciatis in suscipit sequi distinctio quasi sunt commodi, sint dicta corrupti reiciendis dolor eveniet iste accusamus maxime. Placeat est fugit beatae perferendis eos totam! Nobis.</div>
+                <div>Praesentium eum repellat illum fugit ex in exercitationem nisi sed similique obcaecati repudiandae, culpa nam nobis corporis ratione error cumque beatae labore accusantium esse quisquam. Nesciunt quidem placeat vel? Quis?</div>
+                <div>Facere veritatis qui necessitatibus soluta laudantium quaerat dolore. Voluptatibus, dolore facere harum autem a cum atque odit, omnis doloremque rem cumque adipisci id sunt earum nesciunt, maxime ipsum expedita excepturi?</div>
+                <div>Molestiae impedit rem possimus itaque reiciendis totam, voluptatum quibusdam facere, id minima repellendus ullam pariatur ratione, unde quas non ipsum distinctio doloremque tempora temporibus. Doloremque quae pariatur dolorem autem eligendi!</div>
+                <div>Necessitatibus quaerat, iure incidunt tenetur laborum magnam minima, nulla excepturi illo quo tempora ducimus perferendis ut earum mollitia numquam, laboriosam consequuntur hic adipisci corrupti corporis! Corrupti facere maiores natus quis?</div>
+            </div>
+            <br>
+        </div>
+        <div class="row">
+    <br>
+    <br>
+    <br>
+            <div class="col-sm-12">
+                <div>Veritatis magni accusantium architecto distinctio repellat nam earum accusamus quis culpa vitae illo blanditiis sit ipsa suscipit iure minus inventore molestiae, deserunt, deleniti cum? Minima doloremque reprehenderit aut hic recusandae.</div>
+                <div>Alias ut veniam nesciunt quod magnam, obcaecati voluptatem dolorum expedita. Fugiat, eligendi iure enim dolores reprehenderit optio, esse aliquid perspiciatis neque natus corrupti sit mollitia delectus, voluptate facere voluptatum quos?</div>
+                <div>Minus asperiores odit quisquam eveniet esse et, rem iure a, eaque illum ipsa quo sequi architecto explicabo nobis! Quibusdam, libero ad culpa vitae incidunt qui! Veritatis quo voluptates ea accusamus!</div>
+                <div>Atque minus laudantium suscipit voluptatum temporibus fugit unde quo culpa dolorem. Ducimus non id in quo quae magnam, dolorem reprehenderit beatae impedit maiores laborum voluptates ullam consequatur ex quod est!</div>
+                <div>Amet vel possimus dignissimos atque ut minus reprehenderit non impedit veniam! Quo tempore placeat doloribus aliquid nisi debitis culpa, ipsam atque fugiat. Dolorem nam molestiae reprehenderit iusto quidem quas ducimus!</div>
+                <div>Optio quibusdam sapiente temporibus numquam nostrum, ut recusandae eligendi minima nobis voluptatum eius vel doloremque, ipsum officiis earum maxime quos rem dolore inventore magni nisi, saepe praesentium quo! Nobis, exercitationem.</div>
+                <div>Officiis hic molestiae nam sit, aspernatur quia iure? Fuga dolorem exercitationem eos, nobis voluptas molestias asperiores porro, velit quas placeat quia tempora! Incidunt dignissimos laborum distinctio necessitatibus assumenda repudiandae amet.</div>
+            </div>
+            <br>
+        </div>
+        <div class="row">
+    <br>
+    <br>
+    <br>
+            <div class="col-sm-12">
+                <div>Eos sint animi odio necessitatibus odit omnis mollitia in quo iste laboriosam! Inventore deserunt quis officia molestiae earum sunt pariatur veritatis magni harum, velit nihil, enim similique autem! Exercitationem, impedit.</div>
+                <div>Ea commodi nemo eligendi quia at praesentium doloribus architecto suscipit itaque fugit perspiciatis ad, pariatur explicabo possimus nulla et distinctio consectetur aspernatur magni vitae? Sit suscipit illo consectetur mollitia in!</div>
+                <div>Illo beatae optio officiis dolore molestiae dolor voluptatem itaque omnis eveniet quas nisi, veritatis ex repudiandae error tempore, sit est tenetur odit aperiam distinctio nostrum quia natus! Adipisci, doloremque soluta.</div>
+                <div>Consectetur inventore, adipisci voluptates molestiae nihil officiis nulla libero delectus nam qui, iure eum distinctio officia quo placeat minus quasi maxime impedit obcaecati corporis doloremque sequi? Asperiores iusto nihil odit.</div>
+                <div>Asperiores ut aliquid sit consequatur illum temporibus, minus deserunt quod nobis? Nam vitae enim rem, et pariatur reiciendis ut praesentium, itaque quia atque blanditiis accusamus id, dolor inventore. Laboriosam, architecto!</div>
+                <div>Ratione quod exercitationem voluptates maxime? Inventore rem nemo vel amet voluptatem, omnis sed commodi enim nulla nesciunt facilis doloribus veniam itaque repellat illum nostrum ullam, in eaque esse blanditiis quia.</div>
+                <div>Nesciunt ad dolorem magni velit vitae quaerat quae natus quia dolore molestias, quibusdam doloribus in eligendi praesentium numquam laborum cupiditate dolor voluptates officiis. Asperiores, cumque ipsum facere eos tempora beatae.</div>
+            </div>
+            <br>
+        </div>
+        <div class="row">
+    <br>
+    <br>
+    <br>
+            <div class="col-sm-12">
+                <div>Accusamus ipsam quae minima, suscipit quas veritatis temporibus maiores eum voluptate? Fugit minima amet porro eaque possimus, quaerat eligendi animi laborum odit natus architecto, voluptates, qui temporibus nulla tempora suscipit.</div>
+                <div>Repellat modi porro, magni dolores accusantium eligendi suscipit doloremque ipsam non minus saepe obcaecati accusamus nostrum reiciendis! Recusandae similique qui itaque, sapiente assumenda rem delectus repellat libero magnam autem beatae?</div>
+                <div>Distinctio est voluptate a nesciunt in perferendis at deserunt, voluptatem odio atque, quasi praesentium, fugit officia. Dignissimos, voluptatem quia cumque quam ad, quasi aliquam inventore non tenetur est quis impedit.</div>
+                <div>Aspernatur, excepturi. Animi iure, vero eaque delectus, obcaecati iusto libero laboriosam nisi est molestiae eos necessitatibus optio nam! Doloremque, nulla. Sint commodi blanditiis sapiente ab quia quisquam quod ea mollitia.</div>
+                <div>Aliquid possimus, consectetur labore aliquam eius maiores, obcaecati in repellendus et suscipit quas unde repellat sequi! Tempore tenetur, unde quas illum assumenda mollitia maiores? Possimus qui cumque quibusdam eaque recusandae!</div>
+                <div>Sit qui amet iste consequuntur aliquam quas, perspiciatis autem velit odit repellat magni porro deserunt similique eum dolorum. Voluptatibus porro numquam saepe? Eos incidunt officia aperiam. Rem maxime unde quod.</div>
+                <div>Omnis, saepe! Ratione ad provident sapiente blanditiis quibusdam illo ipsa optio perspiciatis aliquid iste non earum laudantium exercitationem omnis debitis accusantium odio cumque, dolorum sed nisi repellat necessitatibus est libero.</div>
+            </div>
+            <br>
+        </div>
+        <div class="row">
+    <br>
+    <br>
+    <br>
+            <div class="col-sm-12">
+                <div>Est, iusto praesentium. Ullam nobis maxime repellendus labore facilis architecto blanditiis nesciunt esse nihil voluptas quae perferendis sed accusantium minima ratione, aliquid culpa explicabo pariatur soluta consequuntur nostrum ipsam eveniet!</div>
+                <div>Cumque sunt iure ex eos sequi fugit, nemo itaque et laborum, omnis, laudantium magni corporis officiis modi similique. Commodi accusamus provident aperiam sint numquam explicabo quo cupiditate vitae, beatae a.</div>
+                <div>Molestias explicabo perferendis soluta sunt omnis similique amet recusandae provident a nihil, necessitatibus laboriosam excepturi at voluptates? Totam recusandae sit illum repudiandae, mollitia adipisci. Voluptatibus expedita illum sit ipsa provident.</div>
+                <div>Repellendus maxime ipsum repellat ipsa fuga sed vel explicabo aperiam blanditiis minima. Expedita repellat aliquid non quidem, dignissimos repellendus? Aut possimus iusto perferendis laudantium iste ut provident molestias veniam rem?</div>
+                <div>Corrupti modi eius nisi quaerat itaque ipsum rem est sed laborum perferendis, earum delectus error deleniti illum vero eum recusandae ad dicta minima iste placeat dolorum sapiente libero iusto. Mollitia.</div>
+                <div>Rem iure assumenda fuga amet architecto ipsum excepturi non perferendis ea. Quam, sint. Commodi blanditiis totam quo voluptates, modi deleniti consectetur incidunt a tempora corrupti, repellendus perferendis animi cum dolores.</div>
+                <div>Dignissimos, pariatur alias at incidunt totam dolor voluptas consequuntur, autem enim sequi error nisi nulla optio? Repellat labore, numquam autem odio eligendi consequatur eveniet recusandae suscipit sequi commodi facere vitae!</div>
+            </div>
+            <br>
+        </div>
+        <div class="row" id="P3">
+    <br>
+    <br>
+    <br>
+            <div class="col-sm-12">
+                <h1>P3</h1>
+                <div>Quae, iure vero! Qui necessitatibus beatae vel esse nisi, perspiciatis quis corporis voluptas cupiditate provident possimus ex ducimus sint nesciunt, ipsum eaque voluptatum temporibus fuga a sunt dolore reprehenderit ea.</div>
+                <div>Maiores incidunt, iusto et facilis, necessitatibus minus maxime, quam laboriosam iure nam magnam reprehenderit voluptates beatae odio esse vero voluptatum praesentium. Quos nulla esse quae, adipisci est repellendus alias magni?</div>
+                <div>Nulla in minima incidunt cupiditate! Totam qui odio, fuga facere doloribus exercitationem minima repudiandae quidem, sit officiis tempore, dignissimos ab debitis laborum architecto ad optio soluta modi? Dolore, illo ullam.</div>
+                <div>Ad amet pariatur repellat nostrum alias aperiam voluptatum ab aspernatur in omnis praesentium sit quo numquam quae deserunt delectus veritatis, dignissimos, quia optio accusamus. Dicta molestias dolore ratione deserunt commodi!</div>
+                <div>Architecto commodi excepturi nesciunt qui laudantium corrupti, odit fuga fugiat magni earum dolor, soluta obcaecati dolores odio fugit quibusdam temporibus aliquid sint deserunt quia facere sapiente facilis labore? Eum, aliquid?</div>
+                <div>Unde maxime eaque quam! Suscipit qui esse fuga odio quos, dolor cupiditate ullam exercitationem animi sapiente impedit aliquid alias id recusandae enim veniam optio soluta consequuntur sit placeat. Nulla, impedit?</div>
+                <div>Atque maiores adipisci, vel nesciunt ipsa, laborum deserunt quas veritatis incidunt doloremque tempore, quos ipsam sit dolorem sunt! Adipisci eligendi voluptates quasi rem nam laudantium nihil fugit error excepturi facilis?</div>
+            </div>
+            <br>
+        </div>
+    </div>
+</body>
+<script>
+</script>
+</html>
