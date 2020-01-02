@@ -4,10 +4,116 @@
     <script src="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/node_modules/jquery-scrollify/jquery.scrollify.js"></script>
     <script>
+        let skills = [
+            {
+                id: "cs",
+                title: "C#: Winform, WPF, POO",
+                value: "7",
+                selector: function(){return "#" + this.id;},
+                width: function(){return this.value + "0%"},
+            },
+            {
+                id: "cpp",
+                title: "C++: POO",
+                value: "4",
+                selector: function(){return "#" + this.id;},
+                width: function(){return this.value + "0%"},
+            },
+            {
+                id: "asp",
+                title: "ASP.NET",
+                value: "5",
+                selector: function(){return "#" + this.id;},
+                width: function(){return this.value + "0%"},
+            },
+            {
+                id: "web",
+                title: "Web: HTML, CSS, PHP",
+                value: "4",
+                selector: function(){return "#" + this.id;},
+                width: function(){return this.value + "0%"},
+            },
+            {
+                id: "bdd",
+                title: "Base de donées: MySQL, PL/SQL",
+                value: "4",
+                selector: function(){return "#" + this.id;},
+                width: function(){return this.value + "0%"},
+            },
+            {
+                id: "js",
+                title: "Javascript: Vanilla JS, JQuery",
+                value: "6",
+                selector: function(){return "#" + this.id;},
+                width: function(){return this.value + "0%"},
+            },
+            {
+                id: "fram",
+                title: "Framework Web: Symfony 4, Bootstrap 4",
+                value: "6",
+                selector: function(){return "#" + this.id;},
+                width: function(){return this.value + "0%"},
+            },
+            {
+                id: "git",
+                title: "GIT",
+                value: "6",
+                selector: function(){return "#" + this.id;},
+                width: function(){return this.value + "0%"},
+            },
+        ]
+
+        $(window).ready(function(){
+            skills.forEach(skill => {
+                $('#skill').append("<div>"+ skill.title +"</div>"+
+                "<div class='progress'>"+
+                    "<div id='"+ skill.id +"' class='progress-bar progress-bar-striped progress-bar-animated bg-success' role='progressbar' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100' style='width: 0%'>"+
+                        "<span style='color: lightgray;'>"+ skill.value +"/10</span>"+
+                    "</div>"+
+                "</div>"+
+                "<br>");
+            });
+
+            skills.forEach(skill => {
+                $(skill.selector()).animate({width: skill.width()}, 500);
+            });
+        })
+        
         $(function() {
             $.scrollify({
                 section : ".row",
                 scrollSpeed: 500,
+                after: function(){
+                    switch($.scrollify.current()[0].id)
+                    {
+                        case "CV":
+                            skills.forEach(skill => {
+                                $(skill.selector()).animate({width: skill.width()}, 500);
+                            });
+                            break;
+                        case "CV2":
+                            $("#CV2 #etude").animate({opacity: 1, top: 0}, 1000);
+                            setTimeout("$('#CV2 #stage').animate({opacity: 1, top: 0}, 1000)", 500);
+                            setTimeout("$('#CV2 #emploie').animate({opacity: 1, top: 0}, 1000)", 1000);
+                            break;
+                    }
+                },
+                before: function(){
+                    console.log($.scrollify.current()[0].id);
+                    switch(true)
+                    {
+                        case $.scrollify.current()[0].id != "CV":
+                            skills.forEach(skill => {
+                                $(skill.selector()).animate({width: '0%'}, 0);
+                            });
+                            break;
+                        case $.scrollify.current()[0].id != "CV2":
+                            $("#CV2 #etude").animate({opacity: 0, top: 100}, 250);
+                            $("#CV2 #stage").animate({opacity: 0, top: 100}, 250);
+                            $("#CV2 #emploie").animate({opacity: 0, top: 100}, 250);
+                            break;
+                    }
+                }
             });
         });
     </script>
@@ -64,66 +170,10 @@
                     loic.rojon@gmail.com
                 </p>
             </div>
-            <div class="col-sm-4">
-                <div>C#: Winform, WPF, POO</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                        <span style="color: lightgray;">7/10</span>
-                    </div>
-                </div>
-                <br>
-                <div>C++: POO</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                        <span style="color: lightgray;">4/10</span>
-                    </div>
-                </div>
-                <br>
-                <div>ASP.NET</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                        <span style="color: lightgray;">5/10</span>
-                    </div>
-                </div>
-                <br>
-                <div>Web: HTML, CSS, PHP</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                        <span style="color: lightgray;">6/10</span>
-                    </div>
-                </div>
-                <br>
-                <div>Base de donnée: MySQL, PL/SQL</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                        <span style="color: lightgray;">4/10</span>
-                    </div>
-                </div>
-                <br>
-                <div>Javascript: Vanilla JS, JQuery</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                        <span style="color: lightgray;">6/10</span>
-                    </div>
-                </div>
-                <br>
-                <div>Framework Web: Symfony 4, Bootstrap 4</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                        <span style="color: lightgray;">6/10</span>
-                    </div>
-                </div>
-                <br>
-                <div>GIT</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                        <span style="color: lightgray;">6/10</span>
-                    </div>
-                </div>
-                <br>
+            <div class="col-sm-4" id="skill">
             </div>
-            <div class="col-sm-4" style="text-align:center">
-                <h1><u>Mes centres d'intérêt</u></h1>
+            <div class="col-sm-4">
+                <h1 style="text-align:center"><u>Mes centres d'intérêt</u></h1 style="text-align:center">
                 <p>
                     Programmation: <a href="#all">Voir Projet</a><br>
                     Lecture (Roman, manga, ...): L'épouventeur, Full Metal Alchemist, 21/11/63<br>
@@ -132,8 +182,8 @@
             </div>
             <br>
         </div>
-        <div class="row">
-            <div class="col-sm-4">
+        <div class="row" id="CV2">
+            <div id="etude" class="col-sm-4" style="opacity: 0;top: 100px;">
                 <br><br><br><br>
                 <div class="bg-primary text-secondary" style="text-align: center;">
                     <h1><u>Etude</u></h1>
@@ -154,7 +204,7 @@
                     Lycée Léonard de Vinci<br>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div id="stage" class="col-sm-4" style="opacity: 0;top: 100px;">
                 <br><br><br><br>
                 <div class="bg-primary text-secondary" style="text-align: center;">
                     <h1><u>Stage</u></h1>
@@ -171,7 +221,7 @@
                     Conception d'un outil de gestion de formation en interne.
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div id="emploie" class="col-sm-4" style="opacity: 0;top: 100px;">
                 <br><br><br><br>
                 <div class="bg-primary text-secondary" style="text-align: center;">
                     <h1><u>Emploie</u></h1>
@@ -190,19 +240,7 @@
             </div>
         </div>
         <div class="row" id="all">
-    <br>
-    <br>
-    <br>
-            <div class="col-sm-12">
-                <div>Quas earum cum temporibus sit consequuntur ea dolorem aspernatur! Suscipit cum similique hic, praesentium recusandae quas cupiditate at nemo veniam eum porro voluptatibus esse quo neque veritatis quasi, quaerat itaque.</div>
-                <div>Iste libero nisi eius eos blanditiis dolorem, cumque eaque esse itaque delectus quas saepe, illum autem sapiente dicta nobis, tempora voluptatibus consequatur similique iusto. Ullam minima eaque repellat aliquid fuga?</div>
-                <div>Eaque dolorum maxime itaque amet cum quidem unde animi velit voluptatum assumenda accusamus, temporibus molestias vero blanditiis autem necessitatibus, ex doloremque tenetur deleniti mollitia? Fugiat minus impedit iusto nulla veritatis.</div>
-                <div>Asperiores doloremque corporis in, modi incidunt quia! Nemo ipsam porro ex esse. Sequi blanditiis ipsum fugit unde error, nihil repellat similique. Nemo vel cum assumenda consequuntur omnis, quisquam placeat autem!</div>
-                <div>Voluptatum natus dicta esse omnis minus hic, praesentium sequi iure aliquam eligendi ratione blanditiis? Repellat placeat corrupti distinctio numquam beatae unde, aspernatur reprehenderit ea assumenda asperiores tempore molestiae labore neque?</div>
-                <div>Incidunt tempore, magnam numquam voluptate cupiditate totam iusto culpa animi repellendus inventore delectus saepe doloremque voluptatibus id voluptas nesciunt provident autem. Quibusdam qui placeat iusto vitae suscipit aliquam, voluptas quia.</div>
-                <div>Neque ducimus mollitia dolorum modi ipsa voluptatem ipsam ea, at, deleniti quasi ex molestias unde suscipit! Provident harum voluptatum eveniet sequi maxime, consequuntur distinctio inventore a, nobis aperiam debitis laboriosam?</div>
-            </div>
-            <br>
+            
         </div>
         <div class="row">
     <br>
@@ -314,5 +352,15 @@
 </body>
 
 <script>
+    $("#CV2").click(function(){
+        /*pos = $(this).data('prevpos')? $(this).data('prevpos'):0;
+        sens = $(this).scrollTop() > pos
+        if(sens) // Top
+            $("#CV2 #etude").animate({opacity: 0, top: +=80}, 1000);
+        else // Bottom
+            $("#CV2 #etude").animate({opacity: 100, top: -=80}, 1000);
+        $(this).data('prevpos',$(this).scrollTop());*/
+        console.log($.scrollify.current());
+    });
 </script>
 </html>
