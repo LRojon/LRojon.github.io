@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 <head>
     <script src="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/node_modules/jquery-scrollify/jquery.scrollify.js"></script>
@@ -98,15 +98,28 @@
                             setTimeout("$('#CV2 #emploie').animate({opacity: 1, top: 0}, 500)", 500);
                             break;
                         case "all":
-                            $('#mapCard').addClass('bounceInDown');
-                            $('#mapCard').animate({opacity: 1}, 1000, function(){
-                                $('#mapCardTitle').animate({opacity: 1}, 1000);
-                            });
+                            setTimeout(() => {
+                                $('#mapCard').addClass('bounceInDown');
+                                $('#mapCard').animate({opacity: 1}, 1000, function(){   
+                                    $('#mapCardTitle').animate({opacity: 1}, 500);
+                                });
+                            }, 0);
+                            setTimeout(() => {
+                                $('#planingCard').addClass('bounceInDown');
+                                $('#planingCard').animate({opacity: 1}, 1000, function(){
+                                    $('#planingCardTitle').animate({opacity: 1}, 500);
+                                });
+                            }, 250);
+                            setTimeout(() => {
+                                $('#dungeonCard').addClass('bounceInDown');
+                                $('#dungeonCard').animate({opacity: 1}, 1000, function(){
+                                    $('#dungeonCardTitle').animate({opacity: 1}, 500);
+                                });
+                            }, 500);
                             break;
                     }
                 },
                 before: function(){
-                    console.log($.scrollify.current()[0].id != "all" ? "ntm" : "all");
                     switch(true)
                     {
                         case $.scrollify.current()[0].id != "CV":
@@ -122,8 +135,20 @@
                     }
                     if($.scrollify.current()[0].id != "all")
                     {
-                        $('#mapCard').animate({opacity: 0}, 1000);
+                        $('#mapCard').animate({opacity: 0}, 10, function(){
+                            $('#mapCardTitle').animate({opacity: 0}, 10);
+                        });
                         $('#mapCard').removeClass("bounceInDown");
+
+                        $('#planingCard').animate({opacity: 0}, 10, function(){
+                            $('#planingCardTitle').animate({opacity: 0}, 10);
+                        });
+                        $('#planingCard').removeClass("bounceInDown");
+
+                        $('#dungeonCard').animate({opacity: 0}, 10, function(){
+                            $('#dungeonCardTitle').animate({opacity: 0}, 10);
+                        });
+                        $('#dungeonCard').removeClass("bounceInDown");
                     }
                 }
             });
@@ -132,7 +157,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/Assets/Style/bootstrap.css">
     <style>
         hr{
             border-color: lightgray;
@@ -167,8 +192,8 @@
                         <a class="dropdown-item" href="#all">Tout les projets</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#map">Générateur de carte</a>
-                        <a class="dropdown-item" href="#P2">Projet 2</a>
-                        <a class="dropdown-item" href="#P3">Projet 3</a>
+                        <a class="dropdown-item" href="#planing">Planing Kem One</a>
+                        <a class="dropdown-item" href="#dungeon">Donjon procédural</a>
                     </div>
                 </li>
             </ul>
@@ -246,7 +271,7 @@
                     <h1><u>Emploie</u></h1>
                 </div>
                 <div style="text-align: center;">
-                    <h4><strong>2019 - ???? </strong><u>Orange</u></h4><br>
+                    <h4><strong>2019 - 2020 </strong><u>Orange</u></h4><br>
                     Développeur en PHP, Codeigniter.<br>
                     Conception de module d'assitance. Refactoring de la base de données.
                 </div>
@@ -264,8 +289,20 @@
                 <div class="card-columns">
                     <div class="card animated" id="mapCard" style="width: auto;opacity: 0;background-color: rgba(245, 245, 245, 0); border-color: rgba(245, 245, 245, 0);">
                         <a href="#map">
-                            <img class="card-img-top" src="Assets/Icon/map.ico" style="width: 100%;border-radius: 500px;">
+                            <img class="card-img-top" src="Assets/Icon/map.ico" style="border-radius: 500px;">
                             <h3 id="mapCardTitle" style="opacity: 0;text-align: center;" class="card-body">Générateur de carte</h3>
+                        </a>
+                    </div>
+                    <div class="card animated" id="planingCard" style="width: auto;opacity: 0;background-color: rgba(245, 245, 245, 0); border-color: rgba(245, 245, 245, 0);">
+                        <a href="#planing">
+                            <img class="card-img-top" src="Assets/Icon/planing.ico">
+                            <h3 id="planingCardTitle" style="opacity: 0;text-align: center;" class="card-body">Planing Kem One</h3>
+                        </a>
+                    </div>
+                    <div class="card animated" id="dungeonCard" style="width: auto;opacity: 0;background-color: rgba(245, 245, 245, 0); border-color: rgba(245, 245, 245, 0);">
+                        <a href="#dungeon">
+                            <img class="card-img-top" style="border-radius: 500px;" src="Assets/Icon/dungeon.ico">
+                            <h3 id="dungeonCardTitle" style="opacity: 0;text-align: center;" class="card-body">Donjon procédural</h3>
                         </a>
                     </div>
                 </div>
@@ -275,125 +312,111 @@
             <div class="col-lg-8">
                 <br><br><br><br>
                 <h2>Générateur de carte</h2>
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div id="mapCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet4/genMap.png" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet4/genLaby.png" alt="Third slide">
+                            <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet4/genLaby.png" alt="Second slide">
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <a class="carousel-control-prev" href="#mapCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
                         <span class="sr-only">Précédement</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <a class="carousel-control-next" href="#mapCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
                         <span class="sr-only">Suivant</span>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4">
-                <br><br><br><br>
-                <h3><u>Résumé</u></h3><br>
-                Ce logiciel (en C#) permet de générer une carte de monde selon<br>
+                <br><br><br><br><br><br>
+                <h3 style="text-align: center;"><u>Résumé</u></h3><br>
+                Ce logiciel (en C#, Winform) permet de générer une carte de monde selon<br>
                 certain paramètre. Il permet aussi de générer un labyrinthe.
                 <hr>
                 Lien de téléchargement: <a href="http://lrojon.alwaysdata.net/GenPerlin.zip">ici</a>.
             </div>
         </div>
-        <div class="row" id="P2">
-    <br>
-    <br>
-    <br>
-            <div class="col-sm-12">
-                <h1>P2</h1>
-                <div>Autem voluptate earum nesciunt sunt eum delectus expedita? Ab, illo tempora. Sunt accusantium veniam aliquid vero velit, consectetur harum enim obcaecati pariatur nam sequi voluptates nihil consequuntur illum, magnam voluptate.</div>
-                <div>Ducimus quod, porro minus maxime doloremque fuga culpa aperiam voluptatibus, nemo accusantium ex molestiae, sit dicta facere similique eveniet nulla illum totam quas facilis cumque quibusdam eius sint. Dolore, aut?</div>
-                <div>Quis qui hic dolore non perspiciatis in suscipit sequi distinctio quasi sunt commodi, sint dicta corrupti reiciendis dolor eveniet iste accusamus maxime. Placeat est fugit beatae perferendis eos totam! Nobis.</div>
-                <div>Praesentium eum repellat illum fugit ex in exercitationem nisi sed similique obcaecati repudiandae, culpa nam nobis corporis ratione error cumque beatae labore accusantium esse quisquam. Nesciunt quidem placeat vel? Quis?</div>
-                <div>Facere veritatis qui necessitatibus soluta laudantium quaerat dolore. Voluptatibus, dolore facere harum autem a cum atque odit, omnis doloremque rem cumque adipisci id sunt earum nesciunt, maxime ipsum expedita excepturi?</div>
-                <div>Molestiae impedit rem possimus itaque reiciendis totam, voluptatum quibusdam facere, id minima repellendus ullam pariatur ratione, unde quas non ipsum distinctio doloremque tempora temporibus. Doloremque quae pariatur dolorem autem eligendi!</div>
-                <div>Necessitatibus quaerat, iure incidunt tenetur laborum magnam minima, nulla excepturi illo quo tempora ducimus perferendis ut earum mollitia numquam, laboriosam consequuntur hic adipisci corrupti corporis! Corrupti facere maiores natus quis?</div>
+        <div class="row" id="planing">
+            <div class="col-lg-4">
+                <br><br><br><br><br><br>
+                <h3 style="text-align: center;"><u>Résumé</u></h3><br>
+                Suite à mon travail chez Kem One j'ai remarqué un planing<br>
+                difficile à connaître (un cycle de 35 jours). J'ai donc programmé<br>
+                cette application (en c#, Xamarin) pour connaître son poste<br>
+                en fonction de l'équipe et du jour.
+                <hr>
+                Fichier .apk: <a href="http://lrojon.alwaysdata.net/Planing.apk">ici</a>.
             </div>
-            <br>
+            <div class="col-lg-8" style="text-align: center;">
+                <br><br><br><br>
+                <h2>Planing Kem One</h2>
+                <center>
+                    <div id="planingCarousel" class="carousel slide" data-ride="carousel" style="width: 35%;">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet2/planing1.png" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet2/planing2.png" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet2/planing3.png" alt="Third slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#planingCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                            <span class="sr-only">Précédement</span>
+                        </a>
+                        <a class="carousel-control-next" href="#planingCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                            <span class="sr-only">Suivant</span>
+                        </a>
+                    </div>
+                </center>
+            </div>
         </div>
-        <div class="row">
-    <br>
-    <br>
-    <br>
-            <div class="col-sm-12">
-                <div>Veritatis magni accusantium architecto distinctio repellat nam earum accusamus quis culpa vitae illo blanditiis sit ipsa suscipit iure minus inventore molestiae, deserunt, deleniti cum? Minima doloremque reprehenderit aut hic recusandae.</div>
-                <div>Alias ut veniam nesciunt quod magnam, obcaecati voluptatem dolorum expedita. Fugiat, eligendi iure enim dolores reprehenderit optio, esse aliquid perspiciatis neque natus corrupti sit mollitia delectus, voluptate facere voluptatum quos?</div>
-                <div>Minus asperiores odit quisquam eveniet esse et, rem iure a, eaque illum ipsa quo sequi architecto explicabo nobis! Quibusdam, libero ad culpa vitae incidunt qui! Veritatis quo voluptates ea accusamus!</div>
-                <div>Atque minus laudantium suscipit voluptatum temporibus fugit unde quo culpa dolorem. Ducimus non id in quo quae magnam, dolorem reprehenderit beatae impedit maiores laborum voluptates ullam consequatur ex quod est!</div>
-                <div>Amet vel possimus dignissimos atque ut minus reprehenderit non impedit veniam! Quo tempore placeat doloribus aliquid nisi debitis culpa, ipsam atque fugiat. Dolorem nam molestiae reprehenderit iusto quidem quas ducimus!</div>
-                <div>Optio quibusdam sapiente temporibus numquam nostrum, ut recusandae eligendi minima nobis voluptatum eius vel doloremque, ipsum officiis earum maxime quos rem dolore inventore magni nisi, saepe praesentium quo! Nobis, exercitationem.</div>
-                <div>Officiis hic molestiae nam sit, aspernatur quia iure? Fuga dolorem exercitationem eos, nobis voluptas molestias asperiores porro, velit quas placeat quia tempora! Incidunt dignissimos laborum distinctio necessitatibus assumenda repudiandae amet.</div>
+        <div class="row" id="dungeon">
+            <div class="col-lg-8" style="text-align: center;">
+                <br><br><br><br>
+                <h2>Donjon Procédural</h2>
+                <div id="dungeonCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet6/code.png" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet6/interface.png" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet6/Map.png" alt="Third slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet6/inGame.png" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#dungeonCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                        <span class="sr-only">Précédement</span>
+                    </a>
+                    <a class="carousel-control-next" href="#dungeonCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                        <span class="sr-only">Suivant</span>
+                    </a>
+                </div>
             </div>
-            <br>
-        </div>
-        <div class="row">
-    <br>
-    <br>
-    <br>
-            <div class="col-sm-12">
-                <div>Eos sint animi odio necessitatibus odit omnis mollitia in quo iste laboriosam! Inventore deserunt quis officia molestiae earum sunt pariatur veritatis magni harum, velit nihil, enim similique autem! Exercitationem, impedit.</div>
-                <div>Ea commodi nemo eligendi quia at praesentium doloribus architecto suscipit itaque fugit perspiciatis ad, pariatur explicabo possimus nulla et distinctio consectetur aspernatur magni vitae? Sit suscipit illo consectetur mollitia in!</div>
-                <div>Illo beatae optio officiis dolore molestiae dolor voluptatem itaque omnis eveniet quas nisi, veritatis ex repudiandae error tempore, sit est tenetur odit aperiam distinctio nostrum quia natus! Adipisci, doloremque soluta.</div>
-                <div>Consectetur inventore, adipisci voluptates molestiae nihil officiis nulla libero delectus nam qui, iure eum distinctio officia quo placeat minus quasi maxime impedit obcaecati corporis doloremque sequi? Asperiores iusto nihil odit.</div>
-                <div>Asperiores ut aliquid sit consequatur illum temporibus, minus deserunt quod nobis? Nam vitae enim rem, et pariatur reiciendis ut praesentium, itaque quia atque blanditiis accusamus id, dolor inventore. Laboriosam, architecto!</div>
-                <div>Ratione quod exercitationem voluptates maxime? Inventore rem nemo vel amet voluptatem, omnis sed commodi enim nulla nesciunt facilis doloribus veniam itaque repellat illum nostrum ullam, in eaque esse blanditiis quia.</div>
-                <div>Nesciunt ad dolorem magni velit vitae quaerat quae natus quia dolore molestias, quibusdam doloribus in eligendi praesentium numquam laborum cupiditate dolor voluptates officiis. Asperiores, cumque ipsum facere eos tempora beatae.</div>
+            <div class="col-lg-4">
+                <br><br><br><br><br><br>
+                <h3 style="text-align: center;"><u>Résumé</u></h3><br>
+                C'est un générateur de donjon procédural, applicable à un<br>
+                projet Unity (C#). Les donjons sont généré aléatoirement<br>
+                mais en suivant des règles pour garder une cohérence. 
+                <hr>
+                Fichier .apk: <a href="http://lrojon.alwaysdata.net/Planing.apk">ici</a>.
             </div>
-            <br>
-        </div>
-        <div class="row">
-    <br>
-    <br>
-    <br>
-            <div class="col-sm-12">
-                <div>Accusamus ipsam quae minima, suscipit quas veritatis temporibus maiores eum voluptate? Fugit minima amet porro eaque possimus, quaerat eligendi animi laborum odit natus architecto, voluptates, qui temporibus nulla tempora suscipit.</div>
-                <div>Repellat modi porro, magni dolores accusantium eligendi suscipit doloremque ipsam non minus saepe obcaecati accusamus nostrum reiciendis! Recusandae similique qui itaque, sapiente assumenda rem delectus repellat libero magnam autem beatae?</div>
-                <div>Distinctio est voluptate a nesciunt in perferendis at deserunt, voluptatem odio atque, quasi praesentium, fugit officia. Dignissimos, voluptatem quia cumque quam ad, quasi aliquam inventore non tenetur est quis impedit.</div>
-                <div>Aspernatur, excepturi. Animi iure, vero eaque delectus, obcaecati iusto libero laboriosam nisi est molestiae eos necessitatibus optio nam! Doloremque, nulla. Sint commodi blanditiis sapiente ab quia quisquam quod ea mollitia.</div>
-                <div>Aliquid possimus, consectetur labore aliquam eius maiores, obcaecati in repellendus et suscipit quas unde repellat sequi! Tempore tenetur, unde quas illum assumenda mollitia maiores? Possimus qui cumque quibusdam eaque recusandae!</div>
-                <div>Sit qui amet iste consequuntur aliquam quas, perspiciatis autem velit odit repellat magni porro deserunt similique eum dolorum. Voluptatibus porro numquam saepe? Eos incidunt officia aperiam. Rem maxime unde quod.</div>
-                <div>Omnis, saepe! Ratione ad provident sapiente blanditiis quibusdam illo ipsa optio perspiciatis aliquid iste non earum laudantium exercitationem omnis debitis accusantium odio cumque, dolorum sed nisi repellat necessitatibus est libero.</div>
-            </div>
-            <br>
-        </div>
-        <div class="row">
-    <br>
-    <br>
-    <br>
-            <div class="col-sm-12">
-                <div>Est, iusto praesentium. Ullam nobis maxime repellendus labore facilis architecto blanditiis nesciunt esse nihil voluptas quae perferendis sed accusantium minima ratione, aliquid culpa explicabo pariatur soluta consequuntur nostrum ipsam eveniet!</div>
-                <div>Cumque sunt iure ex eos sequi fugit, nemo itaque et laborum, omnis, laudantium magni corporis officiis modi similique. Commodi accusamus provident aperiam sint numquam explicabo quo cupiditate vitae, beatae a.</div>
-                <div>Molestias explicabo perferendis soluta sunt omnis similique amet recusandae provident a nihil, necessitatibus laboriosam excepturi at voluptates? Totam recusandae sit illum repudiandae, mollitia adipisci. Voluptatibus expedita illum sit ipsa provident.</div>
-                <div>Repellendus maxime ipsum repellat ipsa fuga sed vel explicabo aperiam blanditiis minima. Expedita repellat aliquid non quidem, dignissimos repellendus? Aut possimus iusto perferendis laudantium iste ut provident molestias veniam rem?</div>
-                <div>Corrupti modi eius nisi quaerat itaque ipsum rem est sed laborum perferendis, earum delectus error deleniti illum vero eum recusandae ad dicta minima iste placeat dolorum sapiente libero iusto. Mollitia.</div>
-                <div>Rem iure assumenda fuga amet architecto ipsum excepturi non perferendis ea. Quam, sint. Commodi blanditiis totam quo voluptates, modi deleniti consectetur incidunt a tempora corrupti, repellendus perferendis animi cum dolores.</div>
-                <div>Dignissimos, pariatur alias at incidunt totam dolor voluptas consequuntur, autem enim sequi error nisi nulla optio? Repellat labore, numquam autem odio eligendi consequatur eveniet recusandae suscipit sequi commodi facere vitae!</div>
-            </div>
-            <br>
-        </div>
-        <div class="row" id="P3">
-    <br>
-    <br>
-    <br>
-            <div class="col-sm-12">
-                <h1>P3</h1>
-                <div>Quae, iure vero! Qui necessitatibus beatae vel esse nisi, perspiciatis quis corporis voluptas cupiditate provident possimus ex ducimus sint nesciunt, ipsum eaque voluptatum temporibus fuga a sunt dolore reprehenderit ea.</div>
-                <div>Maiores incidunt, iusto et facilis, necessitatibus minus maxime, quam laboriosam iure nam magnam reprehenderit voluptates beatae odio esse vero voluptatum praesentium. Quos nulla esse quae, adipisci est repellendus alias magni?</div>
-                <div>Nulla in minima incidunt cupiditate! Totam qui odio, fuga facere doloribus exercitationem minima repudiandae quidem, sit officiis tempore, dignissimos ab debitis laborum architecto ad optio soluta modi? Dolore, illo ullam.</div>
-                <div>Ad amet pariatur repellat nostrum alias aperiam voluptatum ab aspernatur in omnis praesentium sit quo numquam quae deserunt delectus veritatis, dignissimos, quia optio accusamus. Dicta molestias dolore ratione deserunt commodi!</div>
-                <div>Architecto commodi excepturi nesciunt qui laudantium corrupti, odit fuga fugiat magni earum dolor, soluta obcaecati dolores odio fugit quibusdam temporibus aliquid sint deserunt quia facere sapiente facilis labore? Eum, aliquid?</div>
-                <div>Unde maxime eaque quam! Suscipit qui esse fuga odio quos, dolor cupiditate ullam exercitationem animi sapiente impedit aliquid alias id recusandae enim veniam optio soluta consequuntur sit placeat. Nulla, impedit?</div>
-                <div>Atque maiores adipisci, vel nesciunt ipsa, laborum deserunt quas veritatis incidunt doloremque tempore, quos ipsam sit dolorem sunt! Adipisci eligendi voluptates quasi rem nam laudantium nihil fugit error excepturi facilis?</div>
-            </div>
-            <br>
         </div>
     </div>
 </body>
