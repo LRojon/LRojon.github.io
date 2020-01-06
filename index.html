@@ -3,6 +3,7 @@
 <head>
     <script src="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/node_modules/jquery-scrollify/jquery.scrollify.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zugoripls/animate-css-jquery/src/dist/jquery.animator-beta.min.js"></script>
     <script>
         let skills = [
             {
@@ -92,14 +93,18 @@
                             });
                             break;
                         case "CV2":
-                            $("#CV2 #etude").animate({opacity: 1, top: 0}, 1000);
-                            setTimeout("$('#CV2 #stage').animate({opacity: 1, top: 0}, 1000)", 500);
-                            setTimeout("$('#CV2 #emploie').animate({opacity: 1, top: 0}, 1000)", 1000);
+                            setTimeout("$('#CV2 #etude').animate({opacity: 1, top: 0}, 500)",     0);
+                            setTimeout("$('#CV2 #stage').animate({opacity: 1, top: 0}, 500)",   250);
+                            setTimeout("$('#CV2 #emploie').animate({opacity: 1, top: 0}, 500)", 500);
+                            break;
+                        case "all":
+                            $('#mapCard').opacity = 1;
+                            $('#mapCard').addClass('bounceInDown');
                             break;
                     }
                 },
                 before: function(){
-                    console.log($.scrollify.current()[0].id);
+                    console.log($.scrollify.current()[0].id != "all" ? "ntm" : "all");
                     switch(true)
                     {
                         case $.scrollify.current()[0].id != "CV":
@@ -113,16 +118,28 @@
                             $("#CV2 #emploie").animate({opacity: 0, top: 100}, 250);
                             break;
                     }
+                    if($.scrollify.current()[0].id != "all")
+                    {
+                        $('#mapCard').opacity = 0;
+                        $('#mapCard').removeClass("bounceInDown");
+                    }
                 }
             });
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
     <style>
         hr{
             border-color: lightgray;
+        }
+
+        .borderHover
+        {
+            border-radius: 500px;
+            border: white solid 10px;
         }
     </style>
 
@@ -145,11 +162,11 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Projets</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#P1">Projet 1</a>
+                        <a class="dropdown-item" href="#all">Tout les projets</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#map">Générateur de carte</a>
                         <a class="dropdown-item" href="#P2">Projet 2</a>
                         <a class="dropdown-item" href="#P3">Projet 3</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#all">Tout les projets</a>
                     </div>
                 </li>
             </ul>
@@ -172,18 +189,18 @@
             </div>
             <div class="col-sm-4" id="skill">
             </div>
-            <div class="col-sm-4">
-                <h1 style="text-align:center"><u>Mes centres d'intérêt</u></h1 style="text-align:center">
+            <div class="col-sm-4" style="text-align:center">
+                <h1><u>Mes centres d'intérêt</u></h1 style="text-align:center">
                 <p>
-                    Programmation: <a href="#all">Voir Projet</a><br>
-                    Lecture (Roman, manga, ...): L'épouventeur, Full Metal Alchemist, 21/11/63<br>
-                    Jeux vidéo<br>
+                    Programmation: <a href="#all">Voir Projet</a><br><br>
+                    Lecture (Roman, manga, ...): L'épouventeur, Full Metal Alchemist, 21/11/63<br><br>
+                    Jeux vidéo<br><br>
                 </p>
             </div>
             <br>
         </div>
         <div class="row" id="CV2">
-            <div id="etude" class="col-sm-4" style="opacity: 0;top: 100px;">
+            <div id="etude" class="col-sm-12 col-lg-4" style="opacity: 0;top: 100px;">
                 <br><br><br><br>
                 <div class="bg-primary text-secondary" style="text-align: center;">
                     <h1><u>Etude</u></h1>
@@ -204,7 +221,7 @@
                     Lycée Léonard de Vinci<br>
                 </div>
             </div>
-            <div id="stage" class="col-sm-4" style="opacity: 0;top: 100px;">
+            <div id="stage" class="col-sm-12 col-lg-4" style="opacity: 0;top: 100px;">
                 <br><br><br><br>
                 <div class="bg-primary text-secondary" style="text-align: center;">
                     <h1><u>Stage</u></h1>
@@ -221,7 +238,7 @@
                     Conception d'un outil de gestion de formation en interne.
                 </div>
             </div>
-            <div id="emploie" class="col-sm-4" style="opacity: 0;top: 100px;">
+            <div id="emploie" class="col-sm-12 col-lg-4" style="opacity: 0;top: 100px;">
                 <br><br><br><br>
                 <div class="bg-primary text-secondary" style="text-align: center;">
                     <h1><u>Emploie</u></h1>
@@ -240,20 +257,46 @@
             </div>
         </div>
         <div class="row" id="all">
-            
+            <div class="col-lg-12">
+                <br><br><br><br>
+                <div class="card-columns" style="width: 33%;">
+                    <div class="card animated" id="mapCard" style="width: auto;opacity: 0;background-color: rgba(245, 245, 245, 0); border-color: rgba(245, 245, 245, 0);">
+                        <img class="card-img-top" src="Assets/Icon/map.ico" style="width: 100%;border-radius: 500px;">
+                        <p id="mapCardTitle" class="card-body">Générateur de carte</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-    <br>
-    <br>
-    <br>
-            <div class="col-sm-12">
-                <div>Hic optio voluptatum non incidunt laudantium vero sit id repudiandae numquam maiores pariatur nisi, beatae in officia expedita deleniti voluptate eveniet? Ullam repudiandae optio nesciunt est quis dolorem doloribus nemo.</div>
-                <div>Vitae voluptatem nemo dolor a atque velit veniam quo consectetur incidunt itaque ullam labore nihil ipsam saepe vero sed, perferendis, assumenda est ratione magnam eos iste nostrum iure. Dolorum, dignissimos?</div>
-                <div>Perferendis minus, qui totam rem et molestiae esse assumenda corporis provident beatae dicta quis saepe voluptate debitis. Itaque, culpa. Sed ad accusantium tempore, nulla nobis voluptas nemo animi illum ipsa!</div>
-                <div>Ab distinctio amet impedit, eligendi veritatis necessitatibus molestiae porro facere minus quam a ipsum ipsa at modi blanditiis provident optio tempore! Quibusdam, officiis voluptatum? Aperiam non necessitatibus quibusdam cumque repudiandae?</div>
-                <div>Nostrum, iste laborum provident similique laudantium dolorum ad unde corporis dolor nisi sed quasi doloremque. Magnam, ab veniam, odit illo exercitationem unde ipsa repudiandae eaque doloremque debitis, enim deleniti perspiciatis?</div>
-                <div>Voluptatem, quisquam ad? Alias quisquam unde possimus in temporibus. Vel consequuntur laboriosam dicta, fugit deserunt illo laborum impedit nihil libero corporis praesentium blanditiis accusamus quas velit magni voluptatem temporibus pariatur.</div>
-                <div>Placeat impedit odit rem vel, autem vitae consectetur, voluptates repellat maiores cumque possimus voluptatibus. Iste cum alias ea ducimus numquam perspiciatis libero quaerat corporis. Sapiente dolorum facere maiores doloribus illum.</div>
+        <div class="row" id="map">
+            <div class="col-lg-8">
+                <br><br><br><br>
+                <h2>Générateur de carte</h2>
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet4/genMap.png" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://lrojon.alwaysdata.net/Image/projet4/genLaby.png" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Précédement</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Suivant</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <br><br><br><br>
+                <h3><u>Résumé</u></h3><br>
+                Ce logiciel (en C#) permet de générer une carte de monde selon<br>
+                certain paramètre. Il permet aussi de générer un labyrinthe.
+                <hr>
+                Lien de téléchargement: <a href="http://lrojon.alwaysdata.net/GenPerlin.zip">ici</a>.
             </div>
         </div>
         <div class="row" id="P2">
@@ -352,15 +395,8 @@
 </body>
 
 <script>
-    $("#CV2").click(function(){
-        /*pos = $(this).data('prevpos')? $(this).data('prevpos'):0;
-        sens = $(this).scrollTop() > pos
-        if(sens) // Top
-            $("#CV2 #etude").animate({opacity: 0, top: +=80}, 1000);
-        else // Bottom
-            $("#CV2 #etude").animate({opacity: 100, top: -=80}, 1000);
-        $(this).data('prevpos',$(this).scrollTop());*/
-        console.log($.scrollify.current());
+    $('#mapIcon').hover(function(){
+        $('#mapIcon').toggleClass('borderHover');
     });
 </script>
 </html>
