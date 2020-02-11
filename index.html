@@ -22,7 +22,16 @@
     <meta name="publisher" content="Loïc Rojon">
     <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/Icon/favicon.png" type="image/x-icon">
     
+    <script>
+        //document.location = ""; if < 1280
+        console.log(window.screen.width);
+        if(window.screen.width < 1280)
+        {
+            document.location = "mobile";
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/LRojon/LRojon.github.io/node_modules/jquery-scrollify/jquery.scrollify.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/zugoripls/animate-css-jquery/src/dist/jquery.animator-beta.min.js"></script>
@@ -221,6 +230,7 @@
 
 <body class="bg-dark" style="overflow: hidden; color: lightgray;">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+        <span class="navbar-brand"><img src="Assets/Icon/favicon.png" width="30" class="img-fluid"></span>
         <a class="navbar-brand" href="#">Loïc Rojon</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -278,12 +288,12 @@
                         <tr>
                             <td><i class="fab fa-github"></i></td>
                             <td>Github</td>
-                            <td style="text-align: right;"><a href="https://github.com/LRojon">LRojon</a></td>
+                            <td style="text-align: right;"><a target="blank" href="https://github.com/LRojon">LRojon</a></td>
                         </tr>
                         <tr>
                             <td><i class="fab fa-linkedin-in"></i></td>
                             <td>Linkedin</td>
-                            <td style="text-align: right;"><a href="https://www.linkedin.com/in/lo%C3%AFc-rojon-89a752180/">Loïc Rojon</a></td>
+                            <td style="text-align: right;"><a target="blank" href="https://www.linkedin.com/in/lo%C3%AFc-rojon-89a752180/">Loïc Rojon</a></td>
                         </tr>
                     </table>
                 </center>
