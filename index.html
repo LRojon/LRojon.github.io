@@ -15,6 +15,8 @@
     </body>
     <script>
 
+var touchDevice = ('ontouchstart' in document.documentElement);
+
         class Project {
             constructor(title, summary, icon, links) {
                 this.title = title
@@ -146,5 +148,12 @@
         })
         let elem = document.querySelector('#main-container')
         elem.innerHTML = innerHTML
+
+        if(touchDevice) {
+            let elems = document.querySelectorAll('.card')
+            elems.forEach(elem => {
+                elem.className = elem.className + ' mobile'
+            })
+        }
     </script>
 </html>

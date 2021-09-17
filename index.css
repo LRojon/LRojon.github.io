@@ -22,6 +22,10 @@ body {
     align-items: center;
     margin: 10px;
 }
+.card.mobile {
+    flex-basis: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+}
 .card-header {
     flex: 1;
     border-radius: 10px 10px 0px 0px;
